@@ -11,7 +11,7 @@ import java.util.HashMap;
 
 public class HomeWork2Ex1 {
 
-    WebDriver driver;
+    private WebDriver driver;
 
     @BeforeMethod
     public void beforeMethod() {

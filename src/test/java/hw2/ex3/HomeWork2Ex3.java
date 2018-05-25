@@ -4,11 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-import java.util.HashMap;
 import java.util.List;
 
 import static java.lang.System.setProperty;
@@ -16,8 +14,8 @@ import static org.testng.Assert.assertEquals;
 
 public class HomeWork2Ex3 {
 
-    WebDriver driver;
-    String driverPath = "C:\\Users\\Polina\\Desktop\\AutoTest\\PolinaVasileva\\chromedriver.exe";
+    private WebDriver driver;
+    String driverPath = "chromedriver.exe";
 
     @BeforeSuite
     public void beforeSuit() {
