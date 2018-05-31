@@ -9,7 +9,7 @@ import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 
-public class HomePage {
+public class HomePageHW3 {
 
     @FindBy(css = "span.icons-benefit")
     private List<WebElement> iconElements;

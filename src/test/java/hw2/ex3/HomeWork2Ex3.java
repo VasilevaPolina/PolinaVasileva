@@ -15,7 +15,7 @@ import static org.testng.Assert.assertEquals;
 public class HomeWork2Ex3 {
 
     private WebDriver driver;
-    String driverPath = "chromedriver.exe";
+    private String driverPath = "chromedriver.exe";
 
     @BeforeSuite
     public void beforeSuit() {
@@ -48,7 +48,7 @@ public class HomeWork2Ex3 {
     }
 
     @Test
-    public void JDIHomePageVerification() {
+    public void homePageTest() {
 
         //2 Open test site by URL
         driver.navigate().to("https://epam.github.io/JDI/index.html");
