@@ -76,13 +76,13 @@ public class HomePageHW3 {
         assertEquals(headerButtons.size(), 4);
     }
 
-    public void checkItemsInHeaderSectionAreDisplayed() {           //2
+    public void checkItemsInHeaderSectionAreDisplayed() {
         for (WebElement element : headerButtons) {
             Assert.assertTrue(element.isDisplayed());
         }
     }
 
-    public void checkTextsOfItemsInHeaderAreCorrect() {                //3
+    public void checkTextsOfItemsInHeaderAreCorrect() {
         assertEquals(headerButtons.get(0).getText(), "HOME");
         assertEquals(headerButtons.get(1).getText(), "CONTACT FORM");
         assertEquals(headerButtons.get(2).getText(), "SERVICE");
@@ -93,7 +93,7 @@ public class HomePageHW3 {
         assertEquals(iconElements.size(), 4);
     }
 
-    public void checkImagesOnHomePageIsDisplayed() {             //2
+    public void checkImagesOnHomePageIsDisplayed() {
         for (WebElement element : iconElements) {
             Assert.assertTrue(element.isDisplayed());
         }

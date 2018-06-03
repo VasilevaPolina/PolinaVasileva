@@ -2,6 +2,7 @@ package hw4.pageObjects;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
@@ -13,21 +14,47 @@ import static org.testng.Assert.assertEquals;
 
 public class HomePage {
 
-    private List<SelenideElement> iconElements = $$("span.icons-benefit");
-    private List<SelenideElement> textElements = $$(".benefit-txt");
-    private List<SelenideElement> dropDownServiceElements = $$("ul.dropdown-menu li a");
-    private List<SelenideElement> leftSectionServiceElements = $$("ul.sub li a");
+    @FindBy(css = "span.icons-benefit")
+    private List<SelenideElement> iconElements;
 
-    private SelenideElement userIcon = $("#user-icon");
-    private SelenideElement userNameTextbox = $("#Name");
-    private SelenideElement passwordTextbox = $("#Password");
-    private SelenideElement loginButton = $("form button[type='submit']");
-    private SelenideElement userFullName = $(".profile-photo span");
-    private SelenideElement serviceButton = $(".m-l8 .dropdown-toggle");
-    private SelenideElement serviceDatesButton = $(".dropdown-menu [href='dates.html']");
-    private SelenideElement headline = $("[name='main-title']");
-    private SelenideElement headlineDescription = $("[name='jdi-text']");
-    private SelenideElement serviceDifferentElementsButton = $(".dropdown-menu [href='different-elements.html']");
+    @FindBy(css = ".benefit-txt")
+    private List<SelenideElement> textElements;
+
+    @FindBy(css = "ul.dropdown-menu li a")
+    private List<SelenideElement> dropDownServiceElements;
+
+    @FindBy(css = "ul.sub li a")
+    private List<SelenideElement> leftSectionServiceElements;
+
+    @FindBy(css = "#user-icon")
+    private SelenideElement userIcon;
+
+    @FindBy(css = "#Name")
+    private SelenideElement userNameTextbox;
+
+    @FindBy(css = "#Password")
+    private SelenideElement passwordTextbox;
+
+    @FindBy(css = "form button[type='submit']")
+    private SelenideElement loginButton;
+
+    @FindBy(css = ".profile-photo span")
+    private SelenideElement userFullName;
+
+    @FindBy(css = ".m-l8 .dropdown-toggle")
+    private SelenideElement serviceButton;
+
+    @FindBy(css = ".dropdown-menu [href='dates.html']")
+    private SelenideElement serviceDatesButton;
+
+    @FindBy(css = "[name='main-title']")
+    private SelenideElement headline;
+
+    @FindBy(css = "[name='jdi-text']")
+    private SelenideElement headlineDescription;
+
+    @FindBy(css = ".dropdown-menu [href='different-elements.html']")
+    private SelenideElement serviceDifferentElementsButton;
 
     public void openSite() {
         Selenide.open("https://epam.github.io/JDI/index.html");
@@ -46,7 +73,7 @@ public class HomePage {
 
     public void checkUserNameAfterLogIn() {
         userFullName.shouldBe(visible);
-        userFullName.shouldHave(text("PITER CHAILOVSKII"));
+        userFullName.shouldHave(text(PITER_CHAILOVSKII.name));
     }
 
     public void checkImagesOnHomePageAreVisible() {

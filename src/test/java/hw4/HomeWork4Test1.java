@@ -3,14 +3,28 @@ package hw4;
 import hw4.base.TestBaseHW4;
 import hw4.pageObjects.DifferentElementsPage;
 import hw4.pageObjects.HomePage;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import static com.codeborne.selenide.Selenide.page;
+import static hw4.enums.Checkboxes.WATER;
+import static hw4.enums.Checkboxes.WIND;
+import static hw4.enums.DropdownColors.YELLOW;
+import static hw4.enums.RadioButtons.SELEN;
 
 public class HomeWork4Test1 extends TestBaseHW4 {
 
+    HomePage homePage;
+    DifferentElementsPage differentElementsPage;
+
+    @BeforeClass
+    public void beforeClass() {
+        homePage = page(HomePage.class);
+        differentElementsPage = page(DifferentElementsPage.class);
+    }
+
     @Test
     public void testCase1() {
-        HomePage homePage = new HomePage();
-        DifferentElementsPage differentElementsPage = new DifferentElementsPage();
 
         //1 Open test site by URL
         homePage.openSite();
@@ -54,36 +68,36 @@ public class HomeWork4Test1 extends TestBaseHW4 {
         differentElementsPage.checkLeftSectionIsDisplayed();
 
         //12 Select checkboxes(Wind, Water)
-        differentElementsPage.clickCheckBox("Water");
-        differentElementsPage.clickCheckBox("Wind");
+        differentElementsPage.clickCheckBox(WATER.value);
+        differentElementsPage.clickCheckBox(WIND.value);
 
         //13 Assert that for each checkbox there is an individual log row and value
         //is corresponded to the status of checkbox. 
 
-        differentElementsPage.verifyCheckboxLog(2, "Water", true);
-        differentElementsPage.verifyCheckboxLog(1, "Wind", true);
+        differentElementsPage.verifyCheckboxLog(2, WATER.value, true);
+        differentElementsPage.verifyCheckboxLog(1, WIND.value, true);
 
         //14 Select radio
-        differentElementsPage.clickRadioButton("Selen");
+        differentElementsPage.clickRadioButton(SELEN.value);
 
         //15 Assert that for radiobutton there is a log row and value is corresponded to the status of radiobutton. 
-        differentElementsPage.verifyRadioButtonLog(1, "Selen", true);
+        differentElementsPage.verifyRadioButtonLog(1, SELEN.value);
 
         //16 Select in dropdown
         differentElementsPage.clickColorsDropdown();
-        differentElementsPage.selectColorOnColorsDropdown("Yellow");
+        differentElementsPage.selectColorOnColorsDropdown(YELLOW.value);
 
         //17 Assert that for dropdown there is a log row and value is corresponded to the selected value. 
-        differentElementsPage.verifyColorDropdownLog(1, "Yellow", true);
+        differentElementsPage.verifyColorDropdownLog(1, YELLOW.value);
 
         //18 Unselect and assert checkboxes
-        differentElementsPage.clickCheckBox("Wind");
-        differentElementsPage.clickCheckBox("Water");
+        differentElementsPage.clickCheckBox(WIND.value);
+        differentElementsPage.clickCheckBox(WATER.value);
 
         // 19 Assert that for each checkbox there is an individual log row and value
         // is corresponded to the status of checkbox. 
-        differentElementsPage.verifyCheckboxLog(2,"Wind", false);
-        differentElementsPage.verifyCheckboxLog(1,"Water", false);
+        differentElementsPage.verifyCheckboxLog(2, WIND.value, false);
+        differentElementsPage.verifyCheckboxLog(1, WATER.value, false);
     }
 }
 

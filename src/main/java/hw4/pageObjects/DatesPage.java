@@ -1,61 +1,48 @@
 package hw4.pageObjects;
 
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+
+import java.util.List;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static com.codeborne.selenide.Selenide.actions;
 
 public class DatesPage {
 
-    private SelenideElement leftRoller = $(By.xpath("(//a[contains(@class, 'ui-slider-handle')]/span)[1]"));
-    private SelenideElement rightRoller = $(By.xpath("(//a[contains(@class, 'ui-slider-handle')])[2]"));
-    private SelenideElement logs = $(".logs");
-    private SelenideElement submitButton = $(".m-t35");
-    private SelenideElement leftSection = $("#mCSB_1 #mCSB_1");
+    @FindBy(css = ".logs li")
+    private List<SelenideElement> logRows;
 
+    @FindBy(xpath = "(//a[contains(@class, 'ui-slider-handle')]/span)[1]")
+    private SelenideElement leftRoller;
 
-    public void checkLog(String cond, int percent) {
-        logs.shouldHave(text("Range 2(" + cond + "):" + percent + " link clicked"));
+    @FindBy(xpath = "(//a[contains(@class, 'ui-slider-handle')])[2]")
+    private SelenideElement rightRoller;
+
+    @FindBy(css = ".ui-slider")
+    private SelenideElement slider;
+
+    public void checkLog(int logRowNumber, String cond, int position){
+        logRows.get(logRowNumber - 1).shouldHave(text("Range 2(" + cond + "):"+ position + " link clicked"));
     }
 
     public void settingLeftRoller(int target) {
-        int actualPosition = Integer.parseInt(leftRoller.getText());
-        Actions actions = new Actions(getWebDriver());
-
-        if(target == 100) {
-            actions.dragAndDrop(leftRoller, submitButton).build().perform();
-        } else if(target == 0) {
-            actions.dragAndDrop(leftRoller, leftSection).build().perform();
+        int sliderSize = slider.getSize().width;
+        int actualPosition = Integer.parseInt(leftRoller.getText()) + 1;
+        if (actualPosition < target) {
+            actions().dragAndDropBy(leftRoller, ((target - actualPosition) * sliderSize) / 100, 0).perform();
         } else {
-            while (Integer.parseInt(leftRoller.getText()) != target) {
-                if (actualPosition < target) {
-                    actions.dragAndDropBy(leftRoller, 1, 0).build().perform();
-                } else {
-                    actions.dragAndDropBy(leftRoller, -4, 0).build().perform();
-                }
-            }
+            actions().dragAndDropBy(leftRoller,  (((actualPosition - target) * sliderSize) * -1) / 100, 0).perform();
         }
     }
 
     public void settingRightRoller(int target) {
-        int actualPosition = Integer.parseInt(rightRoller.getText());
-        Actions actions = new Actions(getWebDriver());
-
-        if(target == 100) {
-            actions.dragAndDrop(rightRoller, submitButton).build().perform();
-        } else if(target == 0) {
-            actions.dragAndDrop(rightRoller, leftSection).build().perform();
+        int sliderSize = slider.getSize().width;
+        int actualPosition = Integer.parseInt(rightRoller.getText()) + 1;
+        if (actualPosition < target) {
+            actions().dragAndDropBy(rightRoller, ((target - actualPosition) * sliderSize) / 100, 0).perform();
         } else {
-            while (Integer.parseInt(rightRoller.getText()) != target) {
-                if (actualPosition < target) {
-                    actions.dragAndDropBy(rightRoller, 1, 0).build().perform();
-                } else {
-                    actions.dragAndDropBy(rightRoller, -4, 0).build().perform();
-                }
-            }
+            actions().dragAndDropBy(rightRoller, (((actualPosition - target) * sliderSize) * -1) / 100, 0).perform();
         }
     }
 }
