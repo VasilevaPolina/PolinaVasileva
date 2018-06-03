@@ -15,7 +15,7 @@
     </properties>
 
     <dependencies>
-        <dependency>
+        <!--<dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java8</artifactId>
             <version>3.0.2</version>
@@ -26,7 +26,7 @@
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-testng</artifactId>
             <version>3.0.2</version>
-        </dependency>
+        </dependency>-->
 
 
         <dependency>
