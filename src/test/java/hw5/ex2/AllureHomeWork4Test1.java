@@ -21,7 +21,6 @@ import static homeWorks.enums.RadioButtons.SELEN;
 @Feature("Different elements page test")
 @Story("Check interface and correctness work of elements")
 @Listeners({AllureAttachmentListener.class})
-
 public class AllureHomeWork4Test1 extends TestBase {
 
     HomePage homePage;

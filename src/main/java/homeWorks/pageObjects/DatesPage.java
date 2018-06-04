@@ -24,8 +24,8 @@ public class DatesPage {
     private SelenideElement slider;
 
     @Step("Verify that log rows on the left panel of Dates Page have correct texts of set roller")
-    public void checkLog(int logRowNumber, String cond, int position){
-        logRows.get(logRowNumber - 1).shouldHave(text("Range 2(" + cond + "):"+ position + " link clicked"));
+    public void checkLog(int logRowNumber, String cond, int position) {
+        logRows.get(logRowNumber - 1).shouldHave(text("Range 2(" + cond + "):" + position + " link clicked"));
     }
 
     @Step("Set the Left Roller value of Slider on Dates Page")
@@ -35,7 +35,7 @@ public class DatesPage {
         if (actualPosition < target) {
             actions().dragAndDropBy(leftRoller, ((target - actualPosition) * sliderSize) / 100, 0).perform();
         } else {
-            actions().dragAndDropBy(leftRoller,  (((actualPosition - target) * sliderSize) * -1) / 100, 0).perform();
+            actions().dragAndDropBy(leftRoller, (((actualPosition - target) * sliderSize) * -1) / 100, 0).perform();
         }
     }
 

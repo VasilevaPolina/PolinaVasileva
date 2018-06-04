@@ -17,7 +17,6 @@ import static com.codeborne.selenide.Selenide.page;
 @Feature("Dates page test")
 @Story("Check correctness work of slider")
 @Listeners({AllureAttachmentListener.class})
-
 public class AllureHomeWork4Test2 extends TestBase {
 
     HomePage homePage;

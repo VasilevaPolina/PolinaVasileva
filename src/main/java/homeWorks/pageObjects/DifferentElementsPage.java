@@ -35,7 +35,7 @@ public class DifferentElementsPage {
     @FindBy(css = ".logs li")
     private List<SelenideElement> logRows;
 
-    @Step("Verify that the number of Checkboxes on Different elements Page  equals 4 and they are displayed")
+    @Step("Verify that number of Checkboxes on Different elements Page equals 4 and they are displayed")
     public void checkCheckboxesAreVisible() {
         assertEquals(checkboxes.size(), 4);
         for (SelenideElement element : checkboxes) {
@@ -43,7 +43,7 @@ public class DifferentElementsPage {
         }
     }
 
-    @Step("Verify that the number of Radio buttons on Different elements Page equals 4 and they are displayed")
+    @Step("Verify that number of Radio buttons on Different elements Page equals 4 and they are displayed")
     public void checkRadioButtonsAreVisible() {
         assertEquals(radioButtons.size(), 4);
         for (SelenideElement element : radioButtons) {
@@ -73,13 +73,15 @@ public class DifferentElementsPage {
     public void checkLeftSectionIsDisplayed() {
         leftSection.shouldBe(visible);
     }
+
     @Step("Click on certain checkbox on Different elements Page")
     public void clickCheckBox(String element) {
         String elementXpath = "//label[contains(.,'" + element + "')]";
         SelenideElement checkbox = $(By.xpath(elementXpath));
         checkbox.click();
     }
-    @Step("Verify that the log row on the left panel of Different elements Page have correct text of set checkbox")
+
+    @Step("Verify that log row on the left panel of Different elements Page have correct text of set checkbox")
     public void verifyCheckboxLog(int logRowNumber, String element, Boolean selected) {
         logRows.get(logRowNumber - 1).shouldHave(text(element + ": condition changed to " + selected));
     }
@@ -91,7 +93,7 @@ public class DifferentElementsPage {
         checkbox.click();
     }
 
-    @Step("Verify that the log row on the left panel of Different elements Page have correct text of set radio button")
+    @Step("Verify that log row on the left panel of Different elements Page have correct text of set radio button")
     public void verifyRadioButtonLog(int logRowNumber, String metal) {
         logRows.get(logRowNumber - 1).shouldHave(text("metal: value changed to " + metal));
     }
@@ -107,7 +109,8 @@ public class DifferentElementsPage {
         SelenideElement colorButton = $(By.xpath(elementXpath));
         colorButton.click();
     }
-    @Step("Verify that log row on the left panel of Different elements Page have correct text of set color on color dropdown,")
+
+    @Step("Verify that log row on the left panel of Different elements Page have correct text of set color on dropdown")
     public void verifyColorDropdownLog(int logRowNumber, String color) {
         logRows.get(logRowNumber - 1).shouldHave(text("Colors: value changed to " + color));
     }

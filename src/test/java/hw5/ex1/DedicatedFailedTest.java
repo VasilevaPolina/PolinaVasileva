@@ -21,7 +21,6 @@ import static org.testng.Assert.assertEquals;
 @Feature("Home page test")
 @Story("Login and check interface")
 @Listeners({AllureAttachmentListener.class})
-
 public class DedicatedFailedTest extends TestBase {
 
     //1 Create a new test
