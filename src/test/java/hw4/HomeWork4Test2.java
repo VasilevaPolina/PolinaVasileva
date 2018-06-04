@@ -1,14 +1,14 @@
 package hw4;
 
-import hw4.base.TestBaseHW4;
-import hw4.pageObjects.DatesPage;
-import hw4.pageObjects.HomePage;
+import homeWorks.base.TestBase;
+import homeWorks.pageObjects.DatesPage;
+import homeWorks.pageObjects.HomePage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.page;
 
-public class HomeWork4Test2 extends TestBaseHW4 {
+public class HomeWork4Test2 extends TestBase {
 
     HomePage homePage;
     DatesPage datesPage;
@@ -35,7 +35,7 @@ public class HomeWork4Test2 extends TestBaseHW4 {
         homePage.checkUserNameAfterLogIn();
 
         //5 Open through the header menu Service -> Dates Page
-        homePage.openDatasServicePage();
+        homePage.openDatesServicePage();
 
         //6 Using drag-and-drop set Range sliders. left sliders - the most left position,
         // right slider - the most right position

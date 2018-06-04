@@ -1,18 +1,18 @@
 package hw4;
 
-import hw4.base.TestBaseHW4;
-import hw4.pageObjects.DifferentElementsPage;
-import hw4.pageObjects.HomePage;
+import homeWorks.base.TestBase;
+import homeWorks.pageObjects.DifferentElementsPage;
+import homeWorks.pageObjects.HomePage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.page;
-import static hw4.enums.Checkboxes.WATER;
-import static hw4.enums.Checkboxes.WIND;
-import static hw4.enums.DropdownColors.YELLOW;
-import static hw4.enums.RadioButtons.SELEN;
+import static homeWorks.enums.Checkboxes.WATER;
+import static homeWorks.enums.Checkboxes.WIND;
+import static homeWorks.enums.DropdownColors.YELLOW;
+import static homeWorks.enums.RadioButtons.SELEN;
 
-public class HomeWork4Test1 extends TestBaseHW4 {
+public class HomeWork4Test1 extends TestBase {
 
     HomePage homePage;
     DifferentElementsPage differentElementsPage;

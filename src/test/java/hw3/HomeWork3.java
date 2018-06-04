@@ -1,6 +1,6 @@
 package hw3;
 
-import hw3.pageObjects.HomePageHW3;
+import homeWorks.pageObjects.HomePageHW3;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;

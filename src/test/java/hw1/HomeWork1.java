@@ -17,7 +17,7 @@ public class HomeWork1 {
 
     //1 Create a new test
     @Test
-    public void JDIHomePageVerification() {
+    public void homePageTest() {
 
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
         chromePrefs.put("download.default_directory", "target");

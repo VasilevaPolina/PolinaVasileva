@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Dedicated Suite" parallel="methods" thread-count="3" verbose="1">
+    <test name="Dedicated">
+        <classes>
+            <class name="hw5.ex2.AllureHomeWork4Test1"/>
+            <class name="hw5.ex2.AllureHomeWork4Test2"/>
+            <class name="hw5.ex1.DedicatedFailedTest"/>
+        </classes>
+    </test>
+</suite>
