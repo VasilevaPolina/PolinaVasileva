@@ -68,10 +68,10 @@ public class HomePage {
     }
 
     @Step("Home Page Login performing")
-    public void login() {
+    public void login(String login, String password) {
         userIcon.click();
-        userNameTextbox.sendKeys(PITER_CHAILOVSKII.login);
-        passwordTextbox.sendKeys(PITER_CHAILOVSKII.password);
+        userNameTextbox.sendKeys(login);
+        passwordTextbox.sendKeys(password);
         loginButton.click();
     }
 

@@ -7,11 +7,12 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.page;
+import static homeWorks.enums.Users.PITER_CHAILOVSKII;
 
 public class HomeWork4Test2 extends TestBase {
 
-    HomePage homePage;
-    DatesPage datesPage;
+    private HomePage homePage;
+    private DatesPage datesPage;
 
     @BeforeClass
     public void beforeClass() {
@@ -29,7 +30,7 @@ public class HomeWork4Test2 extends TestBase {
         homePage.checkHomePageTitle();
 
         //3 Perform login
-        homePage.login();
+        homePage.login(PITER_CHAILOVSKII.login, PITER_CHAILOVSKII.password);
 
         //4 Assert User name in the left-top side of screen that user is logged in
         homePage.checkUserNameAfterLogIn();
@@ -63,6 +64,7 @@ public class HomeWork4Test2 extends TestBase {
         datesPage.checkLog(2, "to", 100);
 
         //12 Using drag-and-drop set Range sliders.
+        datesPage.settingLeftRoller(30);
         datesPage.settingLeftRoller(30);
         datesPage.settingRightRoller(70);
         datesPage.checkLog(2, "from", 30);

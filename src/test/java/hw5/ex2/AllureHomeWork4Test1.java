@@ -17,14 +17,15 @@ import static homeWorks.enums.Checkboxes.WATER;
 import static homeWorks.enums.Checkboxes.WIND;
 import static homeWorks.enums.DropdownColors.YELLOW;
 import static homeWorks.enums.RadioButtons.SELEN;
+import static homeWorks.enums.Users.PITER_CHAILOVSKII;
 
 @Feature("Different elements page test")
 @Story("Check interface and correctness work of elements")
 @Listeners({AllureAttachmentListener.class})
 public class AllureHomeWork4Test1 extends TestBase {
 
-    HomePage homePage;
-    DifferentElementsPage differentElementsPage;
+    private HomePage homePage;
+    private DifferentElementsPage differentElementsPage;
 
     @BeforeClass
     public void beforeClass() {
@@ -47,7 +48,7 @@ public class AllureHomeWork4Test1 extends TestBase {
         homePage.checkHomePageTitle();
 
         //3 Perform login
-        homePage.login();
+        homePage.login(PITER_CHAILOVSKII.login, PITER_CHAILOVSKII.password);
 
         //4 Assert User name in the left-top side of screen that user is loggined
         homePage.checkUserNameAfterLogIn();
