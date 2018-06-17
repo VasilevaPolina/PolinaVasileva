@@ -1,4 +1,4 @@
-package homeWorks.pageObjects;
+package homeWorks.pageObjectsSelenide;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
@@ -35,7 +35,7 @@ public class DifferentElementsPage {
     @FindBy(css = ".logs li")
     private List<SelenideElement> logRows;
 
-    @Step("Verify that number of Checkboxes on Different elements Page equals 4 and they are displayed")
+    @Step("Verify that number of Elements on Different elements Page equals 4 and they are displayed")
     public void checkCheckboxesAreVisible() {
         assertEquals(checkboxes.size(), 4);
         for (SelenideElement element : checkboxes) {

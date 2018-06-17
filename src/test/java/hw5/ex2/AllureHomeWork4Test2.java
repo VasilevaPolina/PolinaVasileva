@@ -3,8 +3,8 @@ package hw5.ex2;
 import com.codeborne.selenide.WebDriverRunner;
 import homeWorks.base.TestBase;
 import homeWorks.listeners.AllureAttachmentListener;
-import homeWorks.pageObjects.DatesPage;
-import homeWorks.pageObjects.HomePage;
+import homeWorks.pageObjectsSelenide.DatesPage;
+import homeWorks.pageObjectsSelenide.HomePage;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.testng.annotations.AfterMethod;
@@ -59,7 +59,7 @@ public class AllureHomeWork4Test2 extends TestBase {
 
         //7 Assert that for "From" and "To" sliders there are logs rows with corresponding values
         datesPage.checkLog(2, "to", 100);
-        datesPage.checkLog(1,"from",0);
+        datesPage.checkLog(1, "from", 0);
 
         //8 Using drag-and-drop set Range sliders. left sliders - the most left position, right slider -
         // the most left position.
@@ -67,8 +67,8 @@ public class AllureHomeWork4Test2 extends TestBase {
         datesPage.settingRightRoller(0);
 
         //9 Assert that for "From" and "To" sliders there are logs rows with corresponding values
-        datesPage.checkLog(2,"from", 0);
-        datesPage.checkLog(1,"to", 0);
+        datesPage.checkLog(2, "from", 0);
+        datesPage.checkLog(1, "to", 0);
 
         //10 Using drag-and-drop set Range sliders. left sliders - the most right position, right slider - the most
         // right position.

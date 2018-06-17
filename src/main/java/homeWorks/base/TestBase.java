@@ -7,7 +7,8 @@ import org.testng.annotations.BeforeSuite;
 public class TestBase {
     private long initTime;
 
-    @BeforeSuite
+    @SuppressWarnings("unchecked")
+    @BeforeSuite(alwaysRun = true)
     public void beforeSuite() {
         initTime = System.currentTimeMillis();
 

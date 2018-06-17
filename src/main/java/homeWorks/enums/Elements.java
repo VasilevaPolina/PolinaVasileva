@@ -1,6 +1,6 @@
 package homeWorks.enums;
 
-public enum Checkboxes {
+public enum Elements {
     WATER("Water"),
     EARTH("Earth"),
     WIND("Wind"),
@@ -8,7 +8,7 @@ public enum Checkboxes {
 
     public String value;
 
-    Checkboxes(String value) {
+    Elements(String value) {
         this.value = value;
     }
 }

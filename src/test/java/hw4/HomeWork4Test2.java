@@ -1,8 +1,8 @@
 package hw4;
 
 import homeWorks.base.TestBase;
-import homeWorks.pageObjects.DatesPage;
-import homeWorks.pageObjects.HomePage;
+import homeWorks.pageObjectsSelenide.DatesPage;
+import homeWorks.pageObjectsSelenide.HomePage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -45,7 +45,7 @@ public class HomeWork4Test2 extends TestBase {
 
         //7 Assert that for "From" and "To" sliders there are logs rows with corresponding values
         datesPage.checkLog(2, "to", 100);
-        datesPage.checkLog(1,"from",0);
+        datesPage.checkLog(1, "from", 0);
 
         //8 Using drag-and-drop set Range sliders. left sliders - the most left position, right slider -
         // the most left position.
@@ -53,8 +53,8 @@ public class HomeWork4Test2 extends TestBase {
         datesPage.settingRightRoller(0);
 
         //9 Assert that for "From" and "To" sliders there are logs rows with corresponding values
-        datesPage.checkLog(2,"from", 0);
-        datesPage.checkLog(1,"to", 0);
+        datesPage.checkLog(2, "from", 0);
+        datesPage.checkLog(1, "to", 0);
 
         //10 Using drag-and-drop set Range sliders. left sliders - the most right position, right slider - the most
         // right position.

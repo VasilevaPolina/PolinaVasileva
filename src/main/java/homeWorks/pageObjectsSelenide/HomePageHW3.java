@@ -1,4 +1,4 @@
-package homeWorks.pageObjects;
+package homeWorks.pageObjectsSelenide;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

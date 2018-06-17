@@ -1,6 +1,6 @@
 package homeWorks.enums;
 
-public enum DropdownColors {
+public enum Colors {
     RED("Red"),
     GREEN("Green"),
     BLUE("Blue"),
@@ -8,7 +8,7 @@ public enum DropdownColors {
 
     public String value;
 
-    DropdownColors(String color) {
+    Colors(String color) {
         this.value = color;
     }
 }

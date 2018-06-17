@@ -1,16 +1,16 @@
 package hw4;
 
 import homeWorks.base.TestBase;
-import homeWorks.pageObjects.DifferentElementsPage;
-import homeWorks.pageObjects.HomePage;
+import homeWorks.pageObjectsSelenide.DifferentElementsPage;
+import homeWorks.pageObjectsSelenide.HomePage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.page;
-import static homeWorks.enums.Checkboxes.WATER;
-import static homeWorks.enums.Checkboxes.WIND;
-import static homeWorks.enums.DropdownColors.YELLOW;
-import static homeWorks.enums.RadioButtons.SELEN;
+import static homeWorks.enums.Elements.WATER;
+import static homeWorks.enums.Elements.WIND;
+import static homeWorks.enums.Colors.YELLOW;
+import static homeWorks.enums.Metals.SELEN;
 import static homeWorks.enums.Users.PITER_CHAILOVSKII;
 
 public class HomeWork4Test1 extends TestBase {

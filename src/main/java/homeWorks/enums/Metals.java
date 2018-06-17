@@ -1,6 +1,6 @@
 package homeWorks.enums;
 
-public enum RadioButtons {
+public enum Metals {
     GOLD("Gold"),
     SILVER("Silver"),
     BRONZE("Bronze"),
@@ -8,7 +8,7 @@ public enum RadioButtons {
 
     public String value;
 
-    RadioButtons(String value) {
+    Metals(String value) {
         this.value = value;
     }
 }

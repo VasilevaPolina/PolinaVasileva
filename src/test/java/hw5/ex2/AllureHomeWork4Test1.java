@@ -3,8 +3,8 @@ package hw5.ex2;
 import com.codeborne.selenide.WebDriverRunner;
 import homeWorks.base.TestBase;
 import homeWorks.listeners.AllureAttachmentListener;
-import homeWorks.pageObjects.DifferentElementsPage;
-import homeWorks.pageObjects.HomePage;
+import homeWorks.pageObjectsSelenide.DifferentElementsPage;
+import homeWorks.pageObjectsSelenide.HomePage;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.testng.annotations.AfterMethod;
@@ -13,10 +13,10 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.page;
-import static homeWorks.enums.Checkboxes.WATER;
-import static homeWorks.enums.Checkboxes.WIND;
-import static homeWorks.enums.DropdownColors.YELLOW;
-import static homeWorks.enums.RadioButtons.SELEN;
+import static homeWorks.enums.Elements.WATER;
+import static homeWorks.enums.Elements.WIND;
+import static homeWorks.enums.Colors.YELLOW;
+import static homeWorks.enums.Metals.SELEN;
 import static homeWorks.enums.Users.PITER_CHAILOVSKII;
 
 @Feature("Different elements page test")
