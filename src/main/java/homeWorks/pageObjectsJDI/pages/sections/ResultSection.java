@@ -9,6 +9,7 @@ import static com.codeborne.selenide.Condition.text;
 
 public class ResultSection extends Section {
 
+    // TODO take a look on IDEA warnings
     @Css(".results .summ-res")
     public Text summaryResult;
 
@@ -24,6 +25,7 @@ public class ResultSection extends Section {
     @Css(".results .sal-res")
     public Text vegetablesResult;
 
+    // TODO what the purpose of this wrappers ?
     @Step("Check correct summary on Result section")
     public void checkSummaryResult(String sum) {
         summaryResult.shouldHave(text("Summary: " + sum));
@@ -43,6 +45,7 @@ public class ResultSection extends Section {
     public void checkMetalResult(String metal) {
         metalResult.shouldHave(text("Metal: " + metal));
     }
+    // !TODO
 
     @Step("Check correct summary on Result section")
     public void checkVegetablesResult(String vegetables) {
@@ -51,6 +54,10 @@ public class ResultSection extends Section {
 
     @Step("Check Result Section")
     public void checkResults(String sum, String color, String elements, String metal, String vegetables) {
+        // TODO this will be better with lists, actually
+        // TODO just represent results log as a List<Str>
+        // TODO and expected results as a List<Str>
+        // TODO compare
         checkSummaryResult(sum);
         checkElementsResult(elements);
         checkColorResult(color);
