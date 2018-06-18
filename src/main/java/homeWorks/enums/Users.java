@@ -1,7 +1,10 @@
 package homeWorks.enums;
 
+@Deprecated
 public enum Users {
-
+    /**
+     * this class used in old SELENIUM homework block
+     */
     PITER_CHAILOVSKII("PITER CHAILOVSKII", "epam", "1234");
 
     public String name;
