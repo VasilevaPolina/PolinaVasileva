@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class User {
 
-    public static User PITER_CHAILOVSKII = new User("epam", "1234", "PETER");
+    public static User PITER_CHAILOVSKII = new User("epam", "1234", "PITER CHAILOVSKII");
 
-    String login;
-    String password;
-    String name;
+    private String login;
+    private String password;
+    private String name;
 
 }

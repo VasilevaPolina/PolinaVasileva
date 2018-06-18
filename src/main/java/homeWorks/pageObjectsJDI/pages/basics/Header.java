@@ -4,11 +4,9 @@ import com.epam.jdi.uitests.web.selenium.elements.common.Button;
 import com.epam.jdi.uitests.web.selenium.elements.common.Text;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Section;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.simple.Css;
+import homeWorks.entities.User;
 import io.qameta.allure.Step;
-
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
-import static homeWorks.enums.Users.PITER_CHAILOVSKII;
+import org.testng.Assert;
 
 public class Header extends Section {
 
@@ -22,9 +20,9 @@ public class Header extends Section {
     private Button metalsAndColor;
 
     @Step("Verify that User Name on the left top of Home Page header is displayed and have a correct name")
-    public void checkUserNameAfterLogIn() {
-        userFullName.shouldBe(visible);
-        userFullName.shouldHave(text(PITER_CHAILOVSKII.name));
+    public void checkUserNameAfterLogIn(User user) {
+        Assert.assertTrue(userFullName.isDisplayed());
+        Assert.assertTrue(userFullName.getText().contains(user.getName()));
     }
 
     @Step("Open \"Metals and Colors\" page")

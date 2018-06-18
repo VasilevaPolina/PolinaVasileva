@@ -1,4 +1,4 @@
-package homeWorks.base;
+package homeWorks.pageObjectsJDI.elements;
 
 import com.epam.commons.EnumUtils;
 import com.epam.commons.LinqUtils;

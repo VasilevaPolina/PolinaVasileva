@@ -9,7 +9,7 @@ import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JFindB
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.objects.JComboBox;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.objects.JDropdown;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.simple.Css;
-import homeWorks.base.CheckListDropdown;
+import homeWorks.pageObjectsJDI.elements.CheckListDropdown;
 import homeWorks.entities.MetalsAndColors;
 import homeWorks.enums.Colors;
 import homeWorks.enums.Elements;
@@ -42,40 +42,13 @@ public class MetalsAndColorsForm extends Form<MetalsAndColors> {
     @FindBy(css = "#submit-button")
     public Button submit;
 
-    @Step("Choose color on Colors Dropdown")
-    public void selectColorOnColorsDropdown(Colors color) {
-        colors.select(color.value);
-    }
-
-    @Step("Select elements on Elements Checkbox")
-    public void selectElementsOnCheckBox(Elements... element) {
-        elements.select(element);
-    }
-
-    @Step("Select metal on Metals Dropdown")
-    public void selectMetalOnMetalsDropdown(Metals metal) {
-        metals.select(metal);
-    }
-
-    @Step("Select Vegetable on Vegetable Dropdown")
-    public void selectVegetableOnDropdown(Vegetables... vegetable) {
-        vegetables.selectValue(vegetable);
-    }
-
     @Step("Fill \"Metals and Colors Form \" with data")
-    public void fillForm(MetalsAndColors metalsAndColors) {
-        // TODO what the point of this wrappers in this particular case ?
-        selectColorOnColorsDropdown(metalsAndColors.getColor());
-        selectElementsOnCheckBox(metalsAndColors.getElements());
-        selectMetalOnMetalsDropdown(metalsAndColors.getMetal());
-        selectVegetableOnDropdown(metalsAndColors.getVegetables());
-        // !TODO
+    public void submit(MetalsAndColors metalsAndColors) {
+        colors.select(metalsAndColors.getColor());
+        elements.select(metalsAndColors.getElements());
+        metals.select(metalsAndColors.getMetal());
+        vegetables.selectValue(metalsAndColors.getVegetables());
         summaryForm.selectSummaryRadioButtons(metalsAndColors.getOddsAndEvens());
-    }
-
-    @Step("Submit \"Metals and Colors Form \"")
-    public void submitMetalsAndColorsForm() {
         submit.click();
     }
-
 }

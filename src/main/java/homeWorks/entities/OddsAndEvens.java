@@ -11,6 +11,6 @@ public class OddsAndEvens {
 
     public static OddsAndEvens THREE_EIGHT = new OddsAndEvens("3", "8");
 
-    String odd;
-    String even;
+    private String odd;
+    private String even;
 }
