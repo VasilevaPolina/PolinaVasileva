@@ -64,10 +64,12 @@ public class MetalsAndColorsForm extends Form<MetalsAndColors> {
 
     @Step("Fill \"Metals and Colors Form \" with data")
     public void fillForm(MetalsAndColors metalsAndColors) {
+        // TODO what the point of this wrappers in this particular case ?
         selectColorOnColorsDropdown(metalsAndColors.getColor());
         selectElementsOnCheckBox(metalsAndColors.getElements());
         selectMetalOnMetalsDropdown(metalsAndColors.getMetal());
         selectVegetableOnDropdown(metalsAndColors.getVegetables());
+        // !TODO
         summaryForm.selectSummaryRadioButtons(metalsAndColors.getOddsAndEvens());
     }
 
