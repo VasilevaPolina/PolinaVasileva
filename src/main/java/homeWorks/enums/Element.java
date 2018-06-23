@@ -1,6 +1,6 @@
 package homeWorks.enums;
 
-public enum Elements {
+public enum Element {
     WATER("Water"),
     EARTH("Earth"),
     WIND("Wind"),
@@ -8,7 +8,7 @@ public enum Elements {
 
     public String value;
 
-    Elements(String value) {
+    Element(String value) {
         this.value = value;
     }
 }

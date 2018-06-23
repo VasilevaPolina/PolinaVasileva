@@ -9,35 +9,35 @@ import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JFindB
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.objects.JComboBox;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.objects.JDropdown;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.simple.Css;
+import homeWorks.enums.Element;
+import homeWorks.enums.Vegetable;
 import homeWorks.pageObjectsJDI.elements.CheckListDropdown;
 import homeWorks.entities.MetalsAndColors;
 import homeWorks.enums.Colors;
-import homeWorks.enums.Elements;
 import homeWorks.enums.Metals;
-import homeWorks.enums.Vegetables;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 
 public class MetalsAndColorsForm extends Form<MetalsAndColors> {
 
-    public SummaryForm summaryForm;
+    private SummaryForm summaryForm;
 
     @JDropdown(
             jroot = @JFindBy(css = ".colors"),
             jlist = @JFindBy(tagName = "li"))
-    public Dropdown<Colors> colors;
+    private Dropdown<Colors> colors;
 
     @JComboBox(
             root = @JFindBy(css = ".metals"),
             expand = @JFindBy(css = ".caret"),
             list = @JFindBy(tagName = "li"))
-    public ComboBox<Metals> metals;
+    private ComboBox<Metals> metals;
 
     @Css(".vertical-group p")
-    CheckList<Elements> elements;
+    private CheckList<Element> elements;
 
     @FindBy(css = "#salad-dropdown label")
-    private CheckListDropdown<Vegetables> vegetables;
+    private CheckListDropdown<Vegetable> vegetables;
 
     @FindBy(css = "#submit-button")
     public Button submit;
@@ -47,8 +47,8 @@ public class MetalsAndColorsForm extends Form<MetalsAndColors> {
         colors.select(metalsAndColors.getColor());
         elements.select(metalsAndColors.getElements());
         metals.select(metalsAndColors.getMetal());
-        vegetables.selectValue(metalsAndColors.getVegetables());
         summaryForm.selectSummaryRadioButtons(metalsAndColors.getOddsAndEvens());
+        vegetables.selectValue(metalsAndColors.getVegetables());
         submit.click();
     }
 }

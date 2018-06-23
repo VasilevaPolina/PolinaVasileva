@@ -25,7 +25,7 @@ public class HomeWork7 extends TestInit {
         //3 Fill form Metals & Colors by data below:
         //Colors: Red
         //Summary: 3, 8
-        //Elements: Water, Fire
+        //Element: Water, Fire
         //Metals: Selen
         //Cucumber,Tomato
         JDISite.metalsAndColorsPage.metalsAndColorsForm.submit(STANDART_PACK);

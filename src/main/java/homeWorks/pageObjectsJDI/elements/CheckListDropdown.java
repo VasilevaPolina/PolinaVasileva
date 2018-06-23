@@ -7,7 +7,7 @@ import com.epam.jdi.uitests.web.selenium.elements.common.Button;
 import com.epam.jdi.uitests.web.selenium.elements.complex.MultiSelector;
 import org.openqa.selenium.By;
 
-import static homeWorks.enums.Vegetables.VEGETABLES;
+import static homeWorks.enums.Vegetable.VEGETABLES;
 
 public class CheckListDropdown<TEnum extends Enum> extends MultiSelector<TEnum> implements ICheckList<TEnum> {
 

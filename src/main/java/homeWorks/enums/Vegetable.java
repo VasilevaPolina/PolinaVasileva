@@ -1,6 +1,6 @@
 package homeWorks.enums;
 
-public enum Vegetables {
+public enum Vegetable {
     CUCUMBER("Cucumber"),
     TOMATO("Tomato"),
     VEGETABLES("Vegetables"),
@@ -8,7 +8,7 @@ public enum Vegetables {
 
     public String value;
 
-    Vegetables(String value) {
+    Vegetable(String value) {
         this.value = value;
     }
 }
