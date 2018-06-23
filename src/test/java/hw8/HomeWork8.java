@@ -1,17 +1,34 @@
-package hw7;
+package hw8;
 
+import com.google.common.reflect.TypeToken;
+import com.google.gson.Gson;
+import com.google.gson.JsonParser;
 import homeWorks.base.TestInit;
+import homeWorks.entities.MetalsAndColors;
 import homeWorks.pageObjectsJDI.JDISite;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Map;
 
 import static homeWorks.entities.MetalsAndColors.STANDART_PACK;
 import static homeWorks.entities.User.PITER_CHAILOVSKII;
 import static homeWorks.enums.Pages.METALS_AND_COLORS;
 
-public class HomeWork7 extends TestInit {
+public class HomeWork8 extends TestInit {
 
-    @Test
-    public void metalsAndColorsPageTest() {
+    @DataProvider
+    public Object[] metalsColorsDataSet() throws IOException {
+        Map<String, MetalsAndColors> metalsColorsDataSet = new Gson().fromJson(new JsonParser().parse(
+                        new FileReader("src/test/resources/JDI_ex8_metalsColorsDataSet.json"))
+                        .getAsJsonObject(), new TypeToken<Map<String, MetalsAndColors>>() {}.getType());
+        return metalsColorsDataSet.values().toArray();
+    }
+
+    @Test(dataProvider = "metalsColorsDataSet")
+    public void metalsAndColorsPageTest(MetalsAndColors metalsAndColors) {
         //1 Login on JDI site as User
         JDISite.homePage.open();
         JDISite.homePage.login(PITER_CHAILOVSKII);

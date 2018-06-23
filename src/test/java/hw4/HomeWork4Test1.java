@@ -7,8 +7,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.page;
-import static homeWorks.enums.Elements.WATER;
-import static homeWorks.enums.Elements.WIND;
+import static homeWorks.enums.Element.WATER;
+import static homeWorks.enums.Element.WIND;
 import static homeWorks.enums.Colors.YELLOW;
 import static homeWorks.enums.Metals.SELEN;
 import static homeWorks.enums.Users.PITER_CHAILOVSKII;
@@ -52,7 +52,7 @@ public class HomeWork4Test1 extends TestBase {
         //7 Click on Service subcategory in the left section and check that drop down contains options
         homePage.checkLeftSectionServiceElementsAreVisible();
 
-        //8 Open through the header menu Service -> Different Elements Page
+        //8 Open through the header menu Service -> Different Element Page
         homePage.clickServiceDropdown();
         homePage.openDifferentElementsPage();
 
