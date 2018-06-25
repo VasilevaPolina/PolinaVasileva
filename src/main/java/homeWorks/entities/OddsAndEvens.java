@@ -17,4 +17,9 @@ public class OddsAndEvens {
     public String sumToString() {
         return String.valueOf(Integer.parseInt(even) + Integer.parseInt(odd));
     }
+
+    public OddsAndEvens(int odd, int even) {
+        this.odd = String.valueOf(odd);
+        this.even = String.valueOf(even);
+    }
 }

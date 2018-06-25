@@ -1,6 +1,6 @@
 package hw3;
 
-import homeWorks.pageObjectsSelenide.HomePageHW3;
+import homeWorks.pageObjectsSelenide.HomePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -15,7 +15,7 @@ public class HomeWork3 {
 
     private WebDriver driver;
     private String driverPath = "chromedriver.exe";
-    private HomePageHW3 homePage;
+    private HomePage homePage;
 
     @BeforeSuite
     public void beforeSuit() {
@@ -26,7 +26,7 @@ public class HomeWork3 {
     public void beforeMethod() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        homePage = PageFactory.initElements(driver, HomePageHW3.class);
+        homePage = PageFactory.initElements(driver, HomePage.class);
     }
 
     @AfterMethod

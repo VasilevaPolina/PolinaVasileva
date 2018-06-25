@@ -2,7 +2,7 @@ package hw4;
 
 import homeWorks.base.TestBase;
 import homeWorks.pageObjectsSelenide.DatesPage;
-import homeWorks.pageObjectsSelenide.HomePage;
+import homeWorks.pageObjectsSelenide.HomePageSelenide;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -11,12 +11,12 @@ import static homeWorks.enums.Users.PITER_CHAILOVSKII;
 
 public class HomeWork4Test2 extends TestBase {
 
-    private HomePage homePage;
+    private HomePageSelenide homePage;
     private DatesPage datesPage;
 
     @BeforeClass
     public void beforeClass() {
-        homePage = page(HomePage.class);
+        homePage = page(HomePageSelenide.class);
         datesPage = page(DatesPage.class);
     }
 
