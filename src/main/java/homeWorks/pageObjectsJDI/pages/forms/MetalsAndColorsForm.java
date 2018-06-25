@@ -9,12 +9,13 @@ import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JFindB
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.objects.JComboBox;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.objects.JDropdown;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.simple.Css;
-import homeWorks.enums.Element;
-import homeWorks.enums.Vegetable;
-import homeWorks.pageObjectsJDI.elements.CheckListDropdown;
 import homeWorks.entities.MetalsAndColors;
 import homeWorks.enums.Colors;
+import homeWorks.enums.Element;
 import homeWorks.enums.Metals;
+import homeWorks.enums.Vegetable;
+import homeWorks.pageObjectsJDI.elements.CheckListDropdown;
+import homeWorks.pageObjectsJDI.pages.basics.MetalsAndColorsPrimitives;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 
@@ -45,10 +46,14 @@ public class MetalsAndColorsForm extends Form<MetalsAndColors> {
     @Step("Fill \"Metals and Colors Form \" with data")
     public void submit(MetalsAndColors metalsAndColors) {
         colors.select(metalsAndColors.getColor());
-        elements.select(metalsAndColors.getElements());
         metals.select(metalsAndColors.getMetal());
         summaryForm.selectSummaryRadioButtons(metalsAndColors.getOddsAndEvens());
         vegetables.selectValue(metalsAndColors.getVegetables());
+        elements.select(metalsAndColors.getElements());
         submit.click();
+    }
+
+    public void submit(MetalsAndColorsPrimitives metalsAndColorsPrimitives) {
+        submit(new MetalsAndColors(metalsAndColorsPrimitives));
     }
 }

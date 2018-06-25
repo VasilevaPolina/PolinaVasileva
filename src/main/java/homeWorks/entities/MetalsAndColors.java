@@ -4,6 +4,7 @@ import homeWorks.enums.Colors;
 import homeWorks.enums.Element;
 import homeWorks.enums.Metals;
 import homeWorks.enums.Vegetable;
+import homeWorks.pageObjectsJDI.pages.basics.MetalsAndColorsPrimitives;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,6 +35,22 @@ public class MetalsAndColors {
     private Colors color;
     private Metals metal;
     private Vegetable[] vegetables;
+
+    public MetalsAndColors(MetalsAndColorsPrimitives metalsAndColorsPrimitives) {
+        this.elements = new Element[metalsAndColorsPrimitives.elements.size()];
+        this.vegetables = new Vegetable[metalsAndColorsPrimitives.vegetables.size()];
+
+        this.color = Colors.valueOf(metalsAndColorsPrimitives.color.toUpperCase());
+        this.metal = Metals.valueOf(metalsAndColorsPrimitives.metal.toUpperCase());
+        this.oddsAndEvens = new OddsAndEvens(metalsAndColorsPrimitives.summary.get(0),
+                metalsAndColorsPrimitives.summary.get(1));
+        for (int i = 0; i < metalsAndColorsPrimitives.elements.size(); i++) {
+            this.elements[i] = Element.valueOf(metalsAndColorsPrimitives.elements.get(i).toUpperCase());
+        }
+        for (int i = 0; i < metalsAndColorsPrimitives.vegetables.size(); i++) {
+            this.vegetables[i] = Vegetable.valueOf(metalsAndColorsPrimitives.vegetables.get(i).toUpperCase());
+        }
+    }
 
     public List<String> toListString() {
         List<String> values = new LinkedList<>();
