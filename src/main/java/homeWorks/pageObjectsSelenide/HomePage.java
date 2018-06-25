@@ -1,137 +1,140 @@
 package homeWorks.pageObjectsSelenide;
 
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
-import io.qameta.allure.Step;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 import java.util.List;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.title;
-import static homeWorks.enums.Users.PITER_CHAILOVSKII;
 import static org.testng.Assert.assertEquals;
 
 public class HomePage {
 
     @FindBy(css = "span.icons-benefit")
-    private List<SelenideElement> iconElements;
+    private List<WebElement> iconElements;
 
     @FindBy(css = ".benefit-txt")
-    private List<SelenideElement> textElements;
+    private List<WebElement> textElements;
 
-    @FindBy(css = "ul.dropdown-menu li a")
-    private List<SelenideElement> dropDownServiceElements;
+    @FindBy(css = "ul.m-l8 > li > a")
+    private List<WebElement> headerButtons;
 
-    @FindBy(css = "ul.sub li a")
-    private List<SelenideElement> leftSectionServiceElements;
+    @FindBy(id = "user-icon")
+    private WebElement userIcon;
 
-    @FindBy(css = "#user-icon")
-    private SelenideElement userIcon;
+    @FindBy(id = "Name")
+    private WebElement userNameTextbox;
 
-    @FindBy(css = "#Name")
-    private SelenideElement userNameTextbox;
-
-    @FindBy(css = "#Password")
-    private SelenideElement passwordTextbox;
+    @FindBy(id = "Password")
+    private WebElement passwordTextbox;
 
     @FindBy(css = "form button[type='submit']")
-    private SelenideElement loginButton;
+    private WebElement loginButton;
 
     @FindBy(css = ".profile-photo span")
-    private SelenideElement userFullName;
+    private WebElement userFullName;
 
-    @FindBy(css = ".m-l8 .dropdown-toggle")
-    private SelenideElement serviceButton;
+    @FindBy(name = "main-title")
+    private WebElement headline;
 
-    @FindBy(css = ".dropdown-menu [href='dates.html']")
-    private SelenideElement serviceDatesButton;
+    @FindBy(name = "jdi-text")
+    private WebElement headlineDescription;
 
-    @FindBy(css = "[name='main-title']")
-    private SelenideElement headline;
+    @FindBy(css = "a[href='https://github.com/epam/JDI']")
+    private WebElement subHeaderLine;
 
-    @FindBy(css = "[name='jdi-text']")
-    private SelenideElement headlineDescription;
+    @FindBy(css = "a[href='https://github.com/epam/JDI']")
+    private WebElement JDI_GITHUB;
 
-    @FindBy(css = ".dropdown-menu [href='different-elements.html']")
-    private SelenideElement serviceDifferentElementsButton;
+    @FindBy(css = "div[name='navigation-sidebar']>#mCSB_1")
+    private WebElement leftSection;
 
-    @Step("Open Home Page")
-    public void openSite() {
-        Selenide.open("https://epam.github.io/JDI/index.html");
+    @FindBy(css = ".footer-content")
+    private WebElement footer;
+
+    public void openSite(WebDriver driver) {
+        driver.navigate().to("https://epam.github.io/JDI/index.html");
     }
 
-    @Step("Verify that Home Page title is correct")
-    public void checkHomePageTitle() {
-        assertEquals(title(), "Home Page");
+    public void checkHomePageTitle(WebDriver driver) {
+        assertEquals(driver.getTitle(), "Home Page");
     }
 
-    @Step("Home Page Login performing")
-    public void login(String login, String password) {
+    public void login(String userName, String password) {
         userIcon.click();
-        userNameTextbox.sendKeys(login);
+        userNameTextbox.sendKeys(userName);
         passwordTextbox.sendKeys(password);
         loginButton.click();
     }
 
-    @Step("Verify that User Name on the left top of Home Page header is displayed and have a correct name")
     public void checkUserNameAfterLogIn() {
-        userFullName.shouldBe(visible);
-        userFullName.shouldHave(text(PITER_CHAILOVSKII.name));
+        assertEquals(userFullName.getText(), "PITER CHAILOVSKII");
     }
 
-    @Step("Verify that number of images on Home Page equals 4 and they are displayed")
-    public void checkImagesOnHomePageAreVisible() {
+    public void checkNumberOfItemsInHeaderSectionIsFour() {              //1
+        assertEquals(headerButtons.size(), 4);
+    }
+
+    public void checkItemsInHeaderSectionAreDisplayed() {
+        for (WebElement element : headerButtons) {
+            Assert.assertTrue(element.isDisplayed());
+        }
+    }
+
+    public void checkTextsOfItemsInHeaderAreCorrect() {
+        assertEquals(headerButtons.get(0).getText(), "HOME");
+        assertEquals(headerButtons.get(1).getText(), "CONTACT FORM");
+        assertEquals(headerButtons.get(2).getText(), "SERVICE");
+        assertEquals(headerButtons.get(3).getText(), "METALS & COLORS");
+    }
+
+    public void checkNumberOfImagesOnHomePageIsFour() {                //1
         assertEquals(iconElements.size(), 4);
-        for (SelenideElement element : iconElements) {
-            element.shouldBe(visible);
+    }
+
+    public void checkImagesOnHomePageIsDisplayed() {
+        for (WebElement element : iconElements) {
+            Assert.assertTrue(element.isDisplayed());
         }
     }
 
-    @Step("Verify that number of texts under images on the Home Page equals 4 and they are displayed")
-    public void checkTextsOnHomePageUnderImagesAreVisible() {
+    public void checkNumberOfTextsOnHomePageUnderIconsIsFour() {
         assertEquals(textElements.size(), 4);
-        for (SelenideElement element : textElements) {
-            element.shouldBe(visible);
-        }
     }
 
-    @Step("Verify that texts on the Header of Home Page are displayed")
-    public void checkTextsAboveOnHomePageAreVisible() {
-        headline.shouldBe(visible);
-        headlineDescription.shouldBe(visible);
+    public void checkTextsOnHomePageUnderIconsAreCorrect() {
+        assertEquals(textElements.get(0).getText(), "To include good practices\nand ideas from successful\n"
+                + "EPAM project");
+        assertEquals(textElements.get(1).getText(), "To be flexible and\ncustomizable");
+        assertEquals(textElements.get(2).getText(), "To be multiplatform");
+        assertEquals(textElements.get(3).getText(), "Already have good base\n(about 20 internal and\n" +
+                "some external projects),\nwish to get more…");
     }
 
-    @Step("Click the button \"Service\" on the Home Page to open the Service dropdown")
-    public void clickServiceDropdown() {
-        serviceButton.click();
+    public void checkTextsOfMainHeaderAreCorrect() {
+        assertEquals(headline.getText(), "EPAM FRAMEWORK WISHES…");
+        assertEquals(headlineDescription.getText(),
+                "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT, " +
+                        "SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA. " +
+                        "UT ENIM AD MINIM VENIAM, QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI " +
+                        "UT ALIQUIP EX EA COMMODO CONSEQUAT DUIS AUTE IRURE DOLOR IN REPREHENDERIT " +
+                        "IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR.");
     }
 
-    @Step("Verify that number of Service dropdown equals 8 and all elements are displayed")
-    public void checkServiceDropDownElementsAreVisible() {
-        assertEquals(dropDownServiceElements.size(), 8);
-        for (SelenideElement element : dropDownServiceElements) {
-            element.shouldBe(visible);
-        }
+    public void checkTextOfSubHeaderIsCorrect() {
+        assertEquals(subHeaderLine.getText(), "JDI GITHUB");
     }
 
-    @Step("Verify that number of Service elements on the left Section of Home Page equals 8 and are displayed")
-    public void checkLeftSectionServiceElementsAreVisible() {
-        assertEquals(leftSectionServiceElements.size(), 8);
-        for (SelenideElement element : leftSectionServiceElements) {
-            element.shouldBe(visible);
-        }
+    public void checkJDIIsLinkAndHasAProperURL() {
+        assertEquals(JDI_GITHUB.getAttribute("href"), "https://github.com/epam/JDI");
     }
 
-    @Step("Verify the button \"Different Elements\" on the Service dropdown on Home Page to open the DifferentElements Page")
-    public void openDifferentElementsPage() {
-        serviceDifferentElementsButton.click();
+    public void checkLeftSectionIsDisplayed() {
+        Assert.assertTrue(leftSection.isDisplayed());
     }
 
-    @Step("Verify the button \"Dates\" on the Service dropdown on Home Page to open the Datas Page")
-    public void openDatesServicePage() {
-        serviceButton.click();
-        serviceDatesButton.click();
+    public void checkFooterIsDisplayed() {
+        Assert.assertTrue(footer.isDisplayed());
     }
 }

@@ -87,8 +87,8 @@ public class DifferentElementsPage {
     }
 
     @Step("Click on certain radio button on Different elements Page")
-    public void clickRadioButton(String element) {
-        String elementXpath = "//label[contains(.,'" + element + "')]";
+    public void clickRadioButton(String metal) {
+        String elementXpath = "//label[contains(.,'" + metal + "')]";
         SelenideElement checkbox = $(By.xpath(elementXpath));
         checkbox.click();
     }

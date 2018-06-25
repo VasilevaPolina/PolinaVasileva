@@ -4,7 +4,7 @@ import com.codeborne.selenide.WebDriverRunner;
 import homeWorks.base.TestBase;
 import homeWorks.listeners.AllureAttachmentListener;
 import homeWorks.pageObjectsSelenide.DatesPage;
-import homeWorks.pageObjectsSelenide.HomePage;
+import homeWorks.pageObjectsSelenide.HomePageSelenide;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.testng.annotations.AfterMethod;
@@ -20,12 +20,12 @@ import static homeWorks.enums.Users.PITER_CHAILOVSKII;
 @Listeners({AllureAttachmentListener.class})
 public class AllureHomeWork4Test2 extends TestBase {
 
-    private HomePage homePage;
+    private HomePageSelenide homePage;
     private DatesPage datesPage;
 
     @BeforeClass
     public void beforeClass() {
-        homePage = page(HomePage.class);
+        homePage = page(HomePageSelenide.class);
         datesPage = page(DatesPage.class);
     }
 
