@@ -21,12 +21,14 @@ public class HomeWork8 extends TestInit {
 
     @DataProvider
     public Object[] metalsColorsDataSet() throws IOException {
+        // TODO this should not be here, create a specific class for data loading purposes
         Map<String, MetalsAndColors> metalsColorsDataSet = new Gson().fromJson(new JsonParser().parse(
                         new FileReader("src/test/resources/JDI_ex8_metalsColorsDataSet.json"))
                         .getAsJsonObject(), new TypeToken<Map<String, MetalsAndColors>>() {}.getType());
         return metalsColorsDataSet.values().toArray();
     }
 
+    // TODO take a look on IDEA warning...
     @Test(dataProvider = "metalsColorsDataSet")
     public void metalsAndColorsPageTest(MetalsAndColors metalsAndColors) {
         //1 Login on JDI site as User
