@@ -75,7 +75,7 @@ public class HomePageCucumber {
     }
 
     @Step
-    @Then("The browser title of page is Home Page")
+    @Then("Page title is Home Page")
     public void checkHomePageTitle() {
         assertEquals(title(), "Home Page");
     }
@@ -91,14 +91,14 @@ public class HomePageCucumber {
     }
 
     @Step
-    @Then("The user icon is displayed on the header")
+    @Then("User icon is displayed on header")
     public void checkUserNameAfterLogIn() {
         userFullName.shouldBe(visible);
         userFullName.shouldHave(text(PITER_CHAILOVSKII.name));
     }
 
     @Step
-    @Then("The number of images on Home Page equals 4 and they are displayed")
+    @Then("Number of images on Home Page equals 4 and they are displayed")
     public void checkImagesOnHomePageAreVisible() {
         assertEquals(iconElements.size(), 4);
         for (SelenideElement element : iconElements) {
@@ -107,7 +107,7 @@ public class HomePageCucumber {
     }
 
     @Step
-    @And("The number of texts under images on the Home Page equals 4 and they are displayed")
+    @And("Number of texts under images on Home Page equals 4 and they are displayed")
     public void checkTextsOnHomePageUnderImagesAreVisible() {
         assertEquals(textElements.size(), 4);
         for (SelenideElement element : textElements) {
@@ -116,20 +116,20 @@ public class HomePageCucumber {
     }
 
     @Step
-    @And("Texts on the Header of Home Page are displayed")
+    @And("Texts on Header of Home Page are displayed")
     public void checkTextsAboveOnHomePageAreVisible() {
         headline.shouldBe(visible);
         headlineDescription.shouldBe(visible);
     }
 
     @Step
-    @When("I click the button \"Service\" on the Home Page to open the Service dropdown")
+    @When("I click button \"Service\" on Home Page to open Service dropdown")
     public void clickServiceDropdown() {
         serviceButton.click();
     }
 
     @Step
-    @Then("The number of Service dropdown buttons equals 8 and they are displayed")
+    @Then("Number of Service dropdown buttons equals 8 and they are displayed")
     public void checkServiceDropDownElementsAreVisible() {
         assertEquals(dropDownServiceElements.size(), 8);
         for (SelenideElement element : dropDownServiceElements) {
@@ -138,13 +138,13 @@ public class HomePageCucumber {
     }
 
     @Step
-    @Then("I close the Service dropdown")
+    @Then("I close Service dropdown")
     public void iCloseTheServiceDropdown() {
         serviceButton.click();
     }
 
     @Step
-    @And("The number of Service elements on the left Section of Home Page equals 8 and they are displayed")
+    @And("Number of Service elements on left Section of Home Page equals 8 and they are displayed")
     public void checkLeftSectionServiceElementsAreVisible() {
         assertEquals(leftSectionServiceElements.size(), 8);
         for (SelenideElement element : leftSectionServiceElements) {
@@ -153,13 +153,13 @@ public class HomePageCucumber {
     }
 
     @Step
-    @When("I click the button \"Different Elements\" on the Service dropdown on Home Page to open DifferentElements Page")
+    @When("I click button \"Different Elements\" on Service dropdown on Home Page to open DifferentElements Page")
     public void openDifferentElementsPage() {
         serviceDifferentElementsButton.click();
     }
 
     @Step
-    @And("I open User Table Page through the header menu Service -> User Table")
+    @And("I open User Table Page through header menu Service -> User Table")
     public void openUserTablePage() {
         serviceButton.click();
         userTableButton.click();

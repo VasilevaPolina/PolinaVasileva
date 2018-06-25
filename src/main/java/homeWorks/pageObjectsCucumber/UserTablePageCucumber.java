@@ -45,7 +45,7 @@ public class UserTablePageCucumber {
     @FindBy(css = ".logs li")
     private List<SelenideElement> logRows;
 
-    String elementXpath;
+    private String elementXpath;
 
     @Step
     @And("I am on Users Table Page")

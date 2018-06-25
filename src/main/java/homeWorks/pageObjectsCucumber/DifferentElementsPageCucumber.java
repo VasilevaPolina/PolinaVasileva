@@ -3,6 +3,7 @@ package homeWorks.pageObjectsCucumber;
 import com.codeborne.selenide.SelenideElement;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import homeWorks.enums.Colors;
 import homeWorks.enums.Element;
 import homeWorks.enums.Metals;
@@ -51,7 +52,7 @@ public class DifferentElementsPageCucumber {
     }
 
     @Step
-    @Then("The number of checkboxes equals 4 and they are displayed")
+    @And("number of checkboxes equals 4 and they are displayed")
     public void checkCheckboxesAreVisible() {
         assertEquals(checkboxes.size(), 4);
         for (SelenideElement element : checkboxes) {
@@ -60,7 +61,7 @@ public class DifferentElementsPageCucumber {
     }
 
     @Step
-    @And("The number of radio buttons on Different elements Page equals 4 and they are displayed")
+    @And("number of radio buttons on Different elements Page equals 4 and they are displayed")
     public void checkRadioButtonsAreVisible() {
         assertEquals(radioButtons.size(), 4);
         for (SelenideElement element : radioButtons) {
@@ -69,13 +70,13 @@ public class DifferentElementsPageCucumber {
     }
 
     @Step
-    @And("The dropdown with colors is displayed")
+    @And("Dropdown with colors is displayed")
     public void checkColorsDropDownIsVisible() {
         colorsDropdown.shouldBe(visible);
     }
 
     @Step
-    @And("Two buttons on the Different elements Page are displayed")
+    @And("Two buttons on Different elements Page are displayed")
     public void checkButtonsAreVisible() {
         assertEquals(buttons.size(), 2);
         for (SelenideElement element : buttons) {
@@ -84,19 +85,19 @@ public class DifferentElementsPageCucumber {
     }
 
     @Step
-    @And("The Right section on the Different elements Page is displayed")
+    @And("Right section on Different elements Page is displayed")
     public void checkRightSectionIsDisplayed() {
         rightSection.shouldBe(visible);
     }
 
     @Step
-    @Then("The Left section on the Different elements Page is displayed")
+    @And("Left section on Different elements Page is displayed")
     public void checkLeftSectionIsDisplayed() {
         leftSection.shouldBe(visible);
     }
 
     @Step
-    @Then("I click on (.+) checkbox on Different elements Page")
+    @And("I click on (.+) checkbox on Different elements Page")
     public void clickCheckBox(String elementString) {
         Element element = Element.valueOf(elementString);
         String elementXpath = "//label[contains(.,'" + element.value + "')]";
@@ -105,7 +106,7 @@ public class DifferentElementsPageCucumber {
     }
 
     @Step
-    @Then("The (.+) log row on the right panel of Different elements Page have text: \"(.+): condition changed to (.+)\"")
+    @And("(.+) log row on right panel of Different elements Page have text: \"(.+): condition changed to (.+)\"")
     public void verifyCheckboxLog(String logRowNumber, String elementString, String selected) {
         int logRowNumber1 = Integer.parseInt(logRowNumber);
         Element element = Element.valueOf(elementString);
@@ -114,7 +115,7 @@ public class DifferentElementsPageCucumber {
     }
 
     @Step
-    @Then("I click on (.+) radio button on Different elements Page")
+    @When("I click on (.+) radio button on Different elements Page")
     public void clickRadioButton(String metalString) {
         Metals metal = Metals.valueOf(metalString);
         String elementXpath = "//label[contains(.,'" + metal.value + "')]";
@@ -123,7 +124,7 @@ public class DifferentElementsPageCucumber {
     }
 
     @Step
-    @Then("The (.+) log row on the right panel of Different elements Page have text: \"metal: value changed to (.+)\"")
+    @Then("(.+) log row on right panel of Different elements Page have text: \"metal: value changed to (.+)\"")
     public void verifyRadioButtonLog(String logRowNumber, String metalString) {
         int logRowNumber1 = Integer.parseInt(logRowNumber);
         Metals metal = Metals.valueOf(metalString);
@@ -131,13 +132,13 @@ public class DifferentElementsPageCucumber {
     }
 
     @Step
-    @Then("I click on colors dropdown with colors on Different elements page")
+    @When("I click on colors dropdown with colors on Different elements page")
     public void clickColorsDropdown() {
         colorsDropdown.click();
     }
 
     @Step
-    @Then("I Choose the (.+) color on colors dropdown")
+    @Then("I Choose (.+) color on colors dropdown")
     public void selectColorOnColorsDropdown(String colorString) {
         Colors color = Colors.valueOf(colorString);
         String elementXpath = "//option[contains(.,'" + color.value + "')]";
@@ -146,7 +147,7 @@ public class DifferentElementsPageCucumber {
     }
 
     @Step
-    @Then("The (.+) log row on the right panel of Different elements Page have text: \"Colors: value changed to (.+)\"")
+    @And("(.+) log row on right panel of Different elements Page have text: \"Colors: value changed to (.+)\"")
     public void verifyColorDropdownLog(String logRowNumber, String colorString) {
         int logRowNumber1 = Integer.parseInt(logRowNumber);
         Colors color = Colors.valueOf(colorString);
