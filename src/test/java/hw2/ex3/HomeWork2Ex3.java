@@ -82,7 +82,7 @@ public class HomeWork2Ex3 {
                 "CONTACT FORM");
         assertEquals(driver.findElement(By.xpath("//li[not(contains(@class,'uui-profile-menu'))]/a[@class='dropdown-toggle']")).getText(),
                 "SERVICE");
-        assertEquals(driver.findElement(By.xpath("//ul[contains(@class,'uui-navigation')]//a[@href='metals-colors.html']")).getText(),
+        assertEquals(driver.findElement(By.xpath("//ul[contains(@class,'uui-navigation')]//a[@href='metals-color.html']")).getText(),
                 "METALS & COLORS");
 
         //8 Assert that there are 4 images on the Index Page and they are displayed
