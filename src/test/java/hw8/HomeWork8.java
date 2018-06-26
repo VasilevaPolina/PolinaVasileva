@@ -1,6 +1,7 @@
 package hw8;
 
 import homeWorks.base.TestInit;
+import homeWorks.entities.MetalsAndColors;
 import homeWorks.pageObjectsJDI.JDISite;
 import homeWorks.pageObjectsJDI.pages.basics.MetalsAndColorsPrimitives;
 import homeWorks.utils.JsonReader;
@@ -20,7 +21,7 @@ public class HomeWork8 extends TestInit {
     }
 
     @Test(dataProvider = "metalsColorsDataSet")
-    public void metalsAndColorsPageTest(MetalsAndColorsPrimitives metalsAndColorsPrimitives) {
+    public void metalsAndColorsPageTest(MetalsAndColors metalsAndColors) {
         //1 Login on JDI site as User
         JDISite.homePage.open();
         JDISite.homePage.login(PITER_CHAILOVSKII);
@@ -31,9 +32,9 @@ public class HomeWork8 extends TestInit {
         JDISite.metalsAndColorsPage.checkOpened();
 
         //3 Fill form Metals & Colors:
-        JDISite.metalsAndColorsPage.metalsAndColorsForm.submit(metalsAndColorsPrimitives);
+        JDISite.metalsAndColorsPage.metalsAndColorsForm.submit(metalsAndColors);
 
         //4 Result sections should contains correct data
-        JDISite.metalsAndColorsPage.resultSection.checkResults(metalsAndColorsPrimitives);
+        JDISite.metalsAndColorsPage.resultSection.checkResults(metalsAndColors);
     }
 }

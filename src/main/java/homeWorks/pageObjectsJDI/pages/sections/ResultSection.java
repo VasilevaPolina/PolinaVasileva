@@ -4,7 +4,6 @@ import com.epam.jdi.uitests.web.selenium.elements.complex.TextList;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Section;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.simple.Css;
 import homeWorks.entities.MetalsAndColors;
-import homeWorks.pageObjectsJDI.pages.basics.MetalsAndColorsPrimitives;
 import io.qameta.allure.Step;
 
 import java.util.List;
@@ -21,12 +20,8 @@ public class ResultSection extends Section {
         String actualValues = results.getValue();
         List<String> expectedValues = metalsAndColors.toListString();
 
-        for(String value : expectedValues) {
+        for (String value : expectedValues) {
             assertTrue(actualValues.contains(value));
         }
-    }
-
-    public void checkResults(MetalsAndColorsPrimitives metalsAndColorsPrimitives) {
-        checkResults(new MetalsAndColors(metalsAndColorsPrimitives));
     }
 }
