@@ -52,8 +52,4 @@ public class MetalsAndColorsForm extends Form<MetalsAndColors> {
         elements.select(metalsAndColors.getElements());
         submit.click();
     }
-
-    public void submit(MetalsAndColorsPrimitives metalsAndColorsPrimitives) {
-        submit(new MetalsAndColors(metalsAndColorsPrimitives));
-    }
 }
