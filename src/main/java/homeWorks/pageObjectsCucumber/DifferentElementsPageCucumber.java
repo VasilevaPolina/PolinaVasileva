@@ -33,7 +33,7 @@ public class DifferentElementsPageCucumber {
     @FindBy(css = ".main-content .uui-button")
     private List<SelenideElement> buttons;
 
-    @FindBy(css = "div.color .uui-form-element")
+    @FindBy(css = "div.colors .uui-form-element")
     private SelenideElement colorsDropdown;
 
     @FindBy(css = "[name='log-sidebar']")
@@ -52,7 +52,7 @@ public class DifferentElementsPageCucumber {
     }
 
     @Step
-    @And("number of checkboxes equals 4 and they are displayed")
+    @And("Number of checkboxes equals 4 and they are displayed")
     public void checkCheckboxesAreVisible() {
         assertEquals(checkboxes.size(), 4);
         for (SelenideElement element : checkboxes) {
@@ -61,7 +61,7 @@ public class DifferentElementsPageCucumber {
     }
 
     @Step
-    @And("number of radio buttons on Different elements Page equals 4 and they are displayed")
+    @And("Number of radio buttons on Different elements Page equals 4 and they are displayed")
     public void checkRadioButtonsAreVisible() {
         assertEquals(radioButtons.size(), 4);
         for (SelenideElement element : radioButtons) {
