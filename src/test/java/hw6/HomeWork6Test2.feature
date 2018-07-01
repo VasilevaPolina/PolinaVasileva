@@ -1,10 +1,10 @@
-@Run
-Feature: Test2
+Feature: User Table Page test on Cucumber
 
   Scenario: User Table Page test
+
     Given I'm on Home Page
     And I login as user PITER_CHAILOVSKII
-    And I open User Table Page through the header menu Service -> User Table
+    And I open User Table Page through header menu Service -> User Table
     And I am on Users Table Page
     And User Table Page's interface contains correct elements
     When I check Number and User columns of Users table
@@ -28,7 +28,7 @@ Feature: Test2
     When I set 'vip' status to Sergey Ivan
     Then 'Log' section shows a log row in format: Vip: condition changed to true
     When I click on dropdown in column Type for user Roman
-    Then droplist contains values
+    Then Droplist contains values
       | Dropdown Values |
       | Admin           |
       | User            |

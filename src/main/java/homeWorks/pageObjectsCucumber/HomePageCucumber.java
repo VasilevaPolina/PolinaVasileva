@@ -139,7 +139,7 @@ public class HomePageCucumber {
 
     @Step
     @Then("I close Service dropdown")
-    public void iCloseTheServiceDropdown() {
+    public void closeServiceDropdown() {
         serviceButton.click();
     }
 
@@ -163,11 +163,5 @@ public class HomePageCucumber {
     public void openUserTablePage() {
         serviceButton.click();
         userTableButton.click();
-
     }
-
-
-
-
-
 }

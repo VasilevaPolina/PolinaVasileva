@@ -153,5 +153,4 @@ public class DifferentElementsPageCucumber {
         Colors color = Colors.valueOf(colorString);
         logRows.get(logRowNumber1 - 1).shouldHave(text("Colors: value changed to " + color.value));
     }
-
 }

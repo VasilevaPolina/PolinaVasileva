@@ -25,10 +25,10 @@ public class UserTablePageCucumber {
     }
 
     @FindBy(css = "td select")
-    public List<SelenideElement> numberTypedropDowns;
+    public List<SelenideElement> numberTypeDropdowns;
 
     @FindBy(css = "[type='checkbox']")
-    public List<SelenideElement> desciptionCheckBoxes;
+    public List<SelenideElement> descriptionCheckBoxes;
 
     @FindBy(css = "#user-table a")
     public List<SelenideElement> datasPageUsers;
@@ -38,9 +38,6 @@ public class UserTablePageCucumber {
 
     @FindBy(css = ".user-descr span")
     public List<SelenideElement> descriptionTexts;
-
-    @FindBy(css = " #ivan")
-    public SelenideElement ivanVipCheckbox;
 
     @FindBy(css = ".logs li")
     private List<SelenideElement> logRows;
@@ -54,13 +51,13 @@ public class UserTablePageCucumber {
     }
 
     @And("User Table Page's interface contains correct elements")
-    public void userTablePageSInterfaceContainsCorrectElements() {
-        assertEquals(numberTypedropDowns.size(), 6);
-        for (SelenideElement element : numberTypedropDowns) {
+    public void checkUserTablePageInterfaceContainsCorrectElements() {
+        assertEquals(numberTypeDropdowns.size(), 6);
+        for (SelenideElement element : numberTypeDropdowns) {
             element.shouldBe(visible);
         }
-        assertEquals(desciptionCheckBoxes.size(), 6);
-        for (SelenideElement element : desciptionCheckBoxes) {
+        assertEquals(descriptionCheckBoxes.size(), 6);
+        for (SelenideElement element : descriptionCheckBoxes) {
             element.shouldBe(visible);
         }
 
@@ -76,12 +73,12 @@ public class UserTablePageCucumber {
     }
 
     @When("I check Number and User columns of Users table")
-    public void iCheckNumberAndUserColumnsOfUsersTable() {
+    public void checkNumberAndUserColumnsOfUsersTable() {
     }
 
     @Then("User table contain correct values for numbers and users")
     public void userTableContainCorrectValuesForNumbersAndUsers(DataTable userTable) {
-        List<Map<String,String>> data = userTable.asMaps(String.class,String.class);
+        List<Map<String, String>> data = userTable.asMaps(String.class, String.class);
         Map<String, String> table = new HashMap<>();
 
         for (int i = 1; i <= datasPageUsers.size(); i++) {
@@ -94,12 +91,12 @@ public class UserTablePageCucumber {
     }
 
     @When("I check Description column of Users table")
-    public void iCheckDescriptionColumnOfUsersTable() {
+    public void checkDescriptionColumnOfUsersTable() {
     }
 
     @Then("All cells of 'Description' column contains text")
     public void allCellsOfDescriptionColumnContainsText(DataTable descriptionTable) {
-        List<Map<String,String>> data = descriptionTable.asMaps(String.class,String.class);
+        List<Map<String, String>> data = descriptionTable.asMaps(String.class, String.class);
         Map<String, String> table = new HashMap<>();
 
         for (int i = 1; i <= descriptionTexts.size(); i++) {
@@ -112,7 +109,7 @@ public class UserTablePageCucumber {
     }
 
     @When("I set 'vip' status to (.+)")
-    public void iSetVipStatusToSergeyIvan(String name) {
+    public void setVipStatusToSergeyIvan(String name) {
         elementXpath = "//a[text()='" + name + "']/../..//input";
         SelenideElement vipButton = $(By.xpath(elementXpath));
         vipButton.click();
@@ -125,17 +122,17 @@ public class UserTablePageCucumber {
     }
 
     @When("I click on dropdown in column Type for user (.+)")
-    public void iClickOnDropdownInColumnTypeForUserRoman(String name) {
+    public void clickOnDropdownInColumnTypeForUserRoman(String name) {
         elementXpath = "//a[text()='" + name + "']/../..//select";
         SelenideElement dropDown = $(By.xpath(elementXpath));
         dropDown.click();
     }
 
-    @Then("droplist contains values")
+    @Then("Droplist contains values")
     public void dropListContainsValues(List<String> list) {
         SelenideElement dropDown = $(By.xpath(elementXpath));
         String dropDownValues = dropDown.getText();
-        for(String value : list) {
+        for (String value : list) {
             dropDownValues.contains(value);
         }
     }
